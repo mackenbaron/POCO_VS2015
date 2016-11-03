@@ -13,6 +13,10 @@ POCO_HEADERS_AUTO( SRCS ${HDRS_G})
 
 add_library( "${LIBNAME}" ${LIB_MODE} ${SRCS} )
 add_library( "${POCO_LIBNAME}" ALIAS "${LIBNAME}")
+IF (WIN32)  
+     target_link_libraries("${LIBNAME}" Ws2_32.lib)
+     target_link_libraries("${LIBNAME}" crypt32.lib)
+ENDIF ()  
 set_target_properties( "${LIBNAME}"
     PROPERTIES
     VERSION ${SHARED_LIBRARY_VERSION} SOVERSION ${SHARED_LIBRARY_VERSION}

@@ -26,7 +26,7 @@ if (WIN32)
 		add_definitions(-DDBUG_OFF)
 	endif (CMAKE_BUILD_TYPE STREQUAL Debug)
 
-	find_library(MYSQL_LIB NAMES mysqlclient.lib
+	find_library(MYSQL_LIB NAMES libmysql.lib
 				 PATHS
 				 $ENV{MYSQL_DIR}/lib/${libsuffixDist}
 				 $ENV{MYSQL_DIR}/libmysql/${libsuffixBuild}
