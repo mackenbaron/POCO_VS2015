@@ -1,4 +1,4 @@
-# POCO_BUILD_TYPE
+﻿# POCO_BUILD_TYPE
 # POCO_STATIC
 # POCO_UNBUNDLED
 # POCO_NO_LOCALE
@@ -61,22 +61,22 @@ option(ENABLE_CPPUNIT "Enable the CppUnit" ON)
 option(ENABLE_XML "Enable the XML" ON)
 option(ENABLE_JSON "Enable the JSON" ON)
 option(ENABLE_MONGODB "Enable MongoDB" ON)
-option(ENABLE_PDF "Enable PDF" OFF)
+option(ENABLE_PDF "Enable PDF" ON)
 option(ENABLE_UTIL "Enable Util" ON)
 option(ENABLE_NET "Enable Net" ON)
 option(ENABLE_NETSSL "Enable NetSSL" ON)
-option(ENABLE_NETSSL_WIN "Enable NetSSL Windows" OFF)
+option(ENABLE_NETSSL_WIN "Enable NetSSL Windows" ON)
 option(ENABLE_CRYPTO "Enable Crypto" ON)
 option(ENABLE_DATA "Enable Data" ON)
 option(ENABLE_DATA_SQLITE "Enable Data SQlite" ON)
 option(ENABLE_DATA_MYSQL "Enable Data MySQL" ON)
 option(ENABLE_DATA_POSTGRESQL "Enable Data PosgreSQL" ON)
 option(ENABLE_DATA_ODBC "Enable Data ODBC" ON)
-option(ENABLE_SEVENZIP "Enable SevenZip" OFF)
+option(ENABLE_SEVENZIP "Enable SevenZip" ON)
 option(ENABLE_ZIP "Enable Zip" ON)
-option(ENABLE_APACHECONNECTOR "Enable ApacheConnector" OFF)
-option(ENABLE_CPPPARSER "Enable C++ parser" OFF)
-option(ENABLE_POCODOC "Enable Poco Documentation Generator" OFF)
+option(ENABLE_APACHECONNECTOR "Enable ApacheConnector" ON)
+option(ENABLE_CPPPARSER "Enable C++ parser" ON)
+option(ENABLE_POCODOC "Enable Poco Documentation Generator" ON)
 option(ENABLE_PAGECOMPILER "Enable PageCompiler" ON)
 option(ENABLE_PAGECOMPILER_FILE2PAGE "Enable File2Page" ON)
 option(ENABLE_REDIS "Enable Redis" ON)
@@ -314,4 +314,3 @@ message(STATUS "CMAKE_CXX_FLAGS_RELWITHDEBINFO:=${CMAKE_CXX_FLAGS_RELWITHDEBINFO
 foreach(component ${Poco_COMPONENTS})
 message(STATUS "Building: ${component}")
 endforeach()
-
