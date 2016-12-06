@@ -159,5 +159,40 @@ void UnicodeConverter::convert(const UTF32Char* utf32String, std::string& utf8St
 	toUTF8(utf32String, UTFStrlen(utf32String), utf8String);
 }
 
+void UnicodeConverter::AnsiToUnicode(const std::string &src, std::wstring &wsrc)
+{
+	std::wstring strDes;
+	if (src.empty())
+		goto __end;
+	int nLen = ::MultiByteToWideChar(CP_ACP, 0, src.c_str(), src.size(), NULL, 0);
+	if (0 == nLen)
+		goto __end;
+	wchar_t* pBuffer = new wchar_t[nLen + 1];
+	memset(pBuffer, 0, nLen + 1);
+	::MultiByteToWideChar(CP_ACP, 0, src.c_str(), src.size(), pBuffer, nLen);
+	pBuffer[nLen] = '\0';
+	strDes.append(pBuffer);
+	delete[] pBuffer;
+__end:
+	wsrc = strDes;
+}
+
+void UnicodeConverter::UnicodeToAnsi(const std::wstring &wsrc, std::string &src)
+{
+	std::string strDes;
+	if (wsrc.empty())
+		goto __end;
+	int nLen = ::WideCharToMultiByte(CP_ACP, 0, wsrc.c_str(), wsrc.size(), NULL, 0, NULL, NULL);
+	if (0 == nLen)
+		goto __end;
+	char* pBuffer = new char[nLen + 1];
+	memset(pBuffer, 0, nLen + 1);
+	::WideCharToMultiByte(CP_ACP, 0, wsrc.c_str(), wsrc.size(), pBuffer, nLen, NULL, NULL);
+	pBuffer[nLen] = '\0';
+	strDes.append(pBuffer);
+	delete[] pBuffer;
+__end:
+	src = strDes;
+}
 
 } // namespace Poco

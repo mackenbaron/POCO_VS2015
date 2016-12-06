@@ -71,6 +71,10 @@ public:
 
 	static void convert(const UTF32Char* utf32String, std::string& utf8String);
 		/// Converts the given UTF-32 encoded zero terminated character sequence into an UTF-8 encoded string.
+	static void AnsiToUnicode(const std::string &src,std::wstring &wsrc);
+		///AnsiToUnicode
+	static void UnicodeToAnsi(const std::wstring &wsrc, std::string &src);
+		///UnicodeToAnsi
 
 	template <typename F, typename T>
 	static void toUTF32(const F& f, T& t)
